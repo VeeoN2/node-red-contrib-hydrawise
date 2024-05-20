@@ -191,7 +191,8 @@ You can also pass a message payload with the command, zone and duration properti
     "id": "094632001153f89c",
     "type": "hydrawise-controller",
     "name": "brains",
-    "key": "xxxx-xxxx-xxxx-xxxx"
+    "host": "xxx-xxx-xxx-xxx",
+    "password": "local-password"
   },
   {
     "id": "d0e9aeb8e316740a",

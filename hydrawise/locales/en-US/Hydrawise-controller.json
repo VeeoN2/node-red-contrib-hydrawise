@@ -1,7 +1,8 @@
 {
     "hydrawise-contrib": {
         "label": {
-            "key": "API Key",
+            "host": "IP of Controller",
+            "password": "Local Password",
             "test": "Test connection"
         }
     }

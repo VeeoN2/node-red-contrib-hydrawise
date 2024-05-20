@@ -32,7 +32,8 @@
       // get parameters
       var params = {
         controllerNode: this.controller,
-        key: controllerNode.key,
+        host: controllerNode.host,
+        password: controllerNode.password,
       };
 
       $.getJSON("getControllers", params, (data) => {
