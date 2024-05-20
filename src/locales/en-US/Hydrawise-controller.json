@@ -1,8 +1,0 @@
-{
-    "hydrawise-contrib": {
-        "label": {
-            "key": "API Key",
-            "test": "Test connection"
-        }
-    }
-}
