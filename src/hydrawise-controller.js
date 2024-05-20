@@ -57,7 +57,7 @@ module.exports = function (RED) {
     // instantiate hydrawise api
     this.hydrawise = new Hydrawise({
       type: 'LOCAL', // local controllers are not supportted
-      host:'HOSTNAME_OR_IP_ADDRESS',
+      host:'192.168.0.45',
       password: config.key
     })
 
