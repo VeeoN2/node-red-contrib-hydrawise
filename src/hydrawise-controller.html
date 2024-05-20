@@ -11,7 +11,8 @@
     category: "config",
     defaults: {
       name: { value: "" },
-      key: { value: "" },
+      password: { value: "" },
+      host: { value: "" },
     },
     label: function () {
       return this.name || "hydrawise controller";
@@ -20,7 +21,9 @@
       $("#node-config-input-test").click(function () {
         // get parameters
         var params = {
-          key: $("#node-config-input-key").val(),
+//          key: $("#node-config-input-key").val(),
+          host: $("#node-config-input-host").val(),
+          password: $("#node-config-input-password").val(),
         };
         $.getJSON("getControllers", params, function (data) {
           var status = $("#node-config-input-status");
@@ -51,25 +54,25 @@
     <input type="text" id="node-config-input-name" placeholder="" />
   </div>
   <div class="form-row key-row">
-    <label for="node-config-input-key"
+    <label for="node-config-input-password"
       ><i class="icon-tag"></i>
-      <span data-i18n="hydrawise-contrib.label.key"></span
+      <span data-i18n="hydrawise-contrib.label.password"></span
     ></label>
     <input
-      type="text"
-      id="node-config-input-key"
+      type="password"
+      id="node-config-input-password"
       placeholder="local-password"
     />
   </div>
   <div class="form-row ip-row">
     <label for="node-config-input-ip"
       ><i class="icon-tag"></i>
-      <span data-i18n="hydrawise-contrib.label.ip"></span
+      <span data-i18n="hydrawise-contrib.label.host"></span
     ></label>
     <input
       type="text"
-      id="node-config-input-ip"
-      placeholder="ip"
+      id="node-config-input-host"
+      placeholder="192.168.XXX.XXX"
     />
   </div>
   <div class="form-row status-row">
