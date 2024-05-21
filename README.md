@@ -9,8 +9,10 @@
 # node-red-contrib-hydrawise
 
 Hydrawise Irrigation toolbox for Node-RED.
-Only local connections - not tested deeply :D
 
+=========== FORK INFO ===========
+Only local connections - not tested deeply :D
+Im not a programmer, i am learning to code by modifying existing code by trial and error, so there is many probably "illegal" workarounds in this fork, but as there is no alternative here you are :D .
 
 ## Install
 
