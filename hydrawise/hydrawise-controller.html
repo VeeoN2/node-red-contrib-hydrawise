@@ -21,7 +21,7 @@
       $("#node-config-input-test").click(function () {
         // get parameters
         var params = {
-//          key: $("#node-config-input-key").val(),
+          type:'LOCAL',
           host: $("#node-config-input-host").val(),
           password: $("#node-config-input-password").val(),
         };
@@ -31,12 +31,7 @@
             status.text("Controller not connected. check your settings.");
             status.css("color", "red");
           } else {
-            status.text(
-              "Controller " +
-                data[0].name +
-                "  connected. Status: " +
-                data[0].status
-            );
+            status.text("Controller connected successfully");
             status.css("color", "green");
           }
         });

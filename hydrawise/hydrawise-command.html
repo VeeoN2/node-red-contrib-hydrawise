@@ -32,22 +32,18 @@
       // get parameters
       var params = {
         controllerNode: this.controller,
+        type:'LOCAL',
         host: controllerNode.host,
         password: controllerNode.password,
       };
-
       $.getJSON("getControllers", params, (data) => {
         var status = $("#node-config-input-controller-status");
         if (data.error) {
+          
           status.text("Controller not connected. check your settings.");
           status.css("color", "red");
         } else {
-          status.text(
-            "Controller " +
-              data[0].name +
-              "  connected. Status: " +
-              data[0].status
-          );
+          status.text("Controller connected successfully");
           status.css("color", "green");
         }
       });

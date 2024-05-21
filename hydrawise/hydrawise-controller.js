@@ -21,24 +21,28 @@ module.exports = function (RED) {
             this.controller.zones = zones
             this.status = {
               status: 'ready',
-              text: 'Zones ' + this.controller.name + ' available.'
+              //text: 'Zones on' + this.controller.name + ' available.'
+              text: 'Succesfully got zones info'
             }
             this.emit('hydrawise_status', this.status)
             resolve(this.controller)
           })
           .catch((err) => {
             this.controller.zones = []
+            console.log('hydrawise-controller: Error durring getting controller info (check settings).');
             this.status = {
               status: 'error',
               text:
-                'Controller available but zones not available. ' + err.stack
+                'Could not get zones info (check config)'
             }
             this.emit('hydrawise_status', this.status)
-            reject(
+
+            //UNCOMMENTING THIS = NODE RED CRASHING WHEN CONNECTIONS SETTINGS ARE WRONG (WORKAROUND)
+/*             reject(
               new Error(
                 'Controller available but zones not available. ' + err.stack
               )
-            )
+            ) */
           })
       })
       return promise
@@ -99,7 +103,7 @@ module.exports = function (RED) {
       .catch((err) => {
         this.status = {
           status: 'error',
-          text: 'Controller not available. Wrong API Key? ' + err.stack
+          text: 'Controller not available. Wrong settings? ' + err.stack
         }
         this.emit('hydrawise_status', this.status)
       })
@@ -116,7 +120,14 @@ module.exports = function (RED) {
       hydrawise
         .getControllers()
         .then((controllers) => {
-          res.json(controllers)
+          controllers[0].getZones()
+          .then(zones => res.json(zones))
+          .catch((err) => {
+            res.json({
+              error: 'Controller not ready. Check your settings. ' + err.message
+            })
+          });
+          //res.json(controllers);
         })
         .catch((err) => {
           res.json({
